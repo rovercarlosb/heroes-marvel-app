@@ -1,4 +1,4 @@
-export interface JsonResponseMarvelAPI {
+export interface JsonResponseAPI {
   code?: number;
   data?: {
     results: Hero<array>;

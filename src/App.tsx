@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     getHeroes();
-  });
+  }, []);
   return (
     <div className="App">
       <Header></Header>

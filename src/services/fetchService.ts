@@ -1,4 +1,4 @@
-import { JsonResponseMarvelAPI } from '../types';
+import { JsonResponseAPI } from '../types';
 
 type JsonHeaders = {
   [key: string]: string;
@@ -16,7 +16,7 @@ export default class fetchService {
     this.headers = jsonHeaders;
   }
 
-  public async get(url: string, params?: any): Promise<JsonResponseMarvelAPI> {
+  public async get(url: string, params?: any): Promise<JsonResponseAPI> {
     let query = Object.keys(params)
       .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
       .join('&');
