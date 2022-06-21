@@ -3,5 +3,5 @@ type Props = {
 };
 
 export const Button = (props: Props): JSX.Element => {
-  return <button>{props.children}</button>;
+  return <button className="animate__animated">{props.children}</button>;
 };

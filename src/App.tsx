@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { Header } from './components/Header';
 import ListHeroes from './components/ListHeroes';
@@ -11,14 +11,23 @@ function App() {
   }
 
   const [heroes, setHeroes] = useState<AppState['heroes']>([]);
-
-  const getHeroes = async () => {
-    const heroesResponse = await MarvelService.getAllHeroes();
-    setHeroes(heroesResponse);
-  };
+  const isMounted = useRef(true)
 
   useEffect(() => {
-    getHeroes();
+    return () => {
+      isMounted.current = false
+    }
+  }, [])
+  
+  useEffect(() => {
+    const getHeroes = async (): Promise<void> => {
+      const heroesResponse = await MarvelService.getAllHeroes();
+      setHeroes(() => heroesResponse);
+    };
+    
+    if (isMounted.current) {
+      getHeroes();
+    }
   }, []);
   return (
     <div className="App">

@@ -1,3 +1,3 @@
-# vitejs-vite-rcxe6u
+# Heroes Marvel App
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/vitejs-vite-rcxe6u)
+App para ver los heroes de la serie de cómic **Marvel**.
